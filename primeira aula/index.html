@@ -3,9 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gerador de Frases Aleatórias</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #frase-display {
+            font-size: 1.5em;
+            color: #555;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 1em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1> aluno charleu</h1>
+    <div class="container">
+        <h1>Gerador de Frases Inspiradoras</h1>
+        <div id="frase-display">
+            Clique no botão para gerar uma frase.
+        </div>
+        <button id="gerar-btn">Gerar Nova Frase</button>
+    </div>
+
+    <script>
+        // Array de frases
+        const frases = [
+            "Acredite no poder dos seus sonhos.",
+            "O sucesso é a soma de pequenos esforços.",
+            "Nunca é tarde demais para ser quem você poderia ter sido.",
+            "Seja a mudança que você deseja ver no mundo.",
+            "A jornada de mil milhas começa com um único passo.",
+            "A persistência é o caminho do êxito.",
+            "Tudo o que você pode imaginar é real.",
+            "A melhor maneira de prever o futuro é criá-lo.",
+            "Não espere por oportunidades, crie-as.",
+            "A felicidade não é algo pronto. Ela vem das suas próprias ações."
+        ];
+
+        // Seleciona os elementos da página
+        const botaoGerar = document.getElementById('gerar-btn');
+        const displayFrase = document.getElementById('frase-display');
+
+        // Adiciona um "ouvinte de evento" (event listener) ao botão
+        botaoGerar.addEventListener('click', () => {
+            // Gera um número aleatório
+            const indiceAleatorio = Math.floor(Math.random() * frases.length);
+            
+            // Exibe a frase no elemento de display
+            displayFrase.textContent = frases[indiceAleatorio];
+        });
+    </script>
 </body>
 </html>
